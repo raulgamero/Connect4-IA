@@ -11,6 +11,7 @@ package edu.epsevg.prop.lab.c4;
  */
 public class Prova {
     public static void main(String[] args) {
+        System.out.println("hola");
         Tauler t = new Tauler(8);
         t.afegeix(1, -1);
         t.afegeix(7, +1);

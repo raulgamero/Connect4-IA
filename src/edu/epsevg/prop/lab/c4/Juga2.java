@@ -71,6 +71,7 @@ public class Juga2 extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
+        
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -95,10 +96,10 @@ public class Juga2 extends javax.swing.JFrame {
         //</editor-fold>
 
         // Definiu al vostre gust els jugadors a enfrontar.
-        Jugador p1 = new Manual();
+        Jugador p1 = new C4Panther(4);
         //Jugador p1 = new Aleatori();
 
-        Jugador p2 = new Profe(2,false);
+        Jugador p2 = new ConectameEsta(8);
         //Jugador p2 = new Manual();
 
         boolean autoMode = true;
