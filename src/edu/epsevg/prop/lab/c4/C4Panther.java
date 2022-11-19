@@ -65,12 +65,13 @@ public class C4Panther
     
     private int miniMax(Tauler t, int profu) {
         int max = -10000;
-        int mejor_mov = 7;
+        int mejor_mov = -1;
         int alpha = -10000;
         int beta = 10000;
 
         for (int i = 0; i < t.getMida(); i++) {
             if (t.movpossible(i)) {
+                if (mejor_mov == -1) mejor_mov = i;
                 Tauler t_aux = new Tauler(t);
                 t_aux.afegeix(i, color);
                 int valorNou = min(t_aux, i, profu-1, alpha, beta);
@@ -142,9 +143,20 @@ public class C4Panther
         return valorHeur;
 
     }
+        
     
     private void creaTaulaHeurisitca (Tauler t) {
-        taulaHeurisitca = new int[t.getMida()][t.getMida()];
+        /*taulaHeurisitca = new int [][] {
+        {3, 4, 5, 7, 7, 5, 4, 3},
+        {4, 6, 8,10,10, 8, 6, 4},
+        {5, 8,11,13,13,11, 8, 5},
+        {7,10,13,16,16,13,10, 7},
+        {7,10,13,16,16,13,10, 7},
+        {5, 8,11,13,13,11, 8, 5},
+        {4, 6, 8,10,10, 8, 6, 4},
+        {3, 4, 5, 7, 7, 5, 4, 3}
+        };*/
+        /*taulaHeurisitca = new int[t.getMida()][t.getMida()];
         for (int i = 0; i < t.getMida(); i++) {
             for (int j = 0; j < t.getMida(); j++) {
                 if(i < t.getMida()/2){
@@ -161,7 +173,31 @@ public class C4Panther
                     }
                 }
             }
+        }*/
+        taulaHeurisitca = new int[t.getMida()][t.getMida()];
+        int ini = 2;
+        for (int i = 0; i < t.getMida(); i++) {
+            for (int j = 0; j < t.getMida(); j++) {
+                    if(j < t.getMida()/2){
+                        taulaHeurisitca[j][i] = ini+=1;
+                    }
+                    else if (j == t.getMida()/2) {
+                        taulaHeurisitca[j][i] = ini;
+                    }
+                    else{
+                        taulaHeurisitca[j][i] = ini-=1;
+                    }   
+            }
+            if(i < t.getMida()/2) ini +=1;
+            else ini -= i-1;
         }
+        for (int i = 0; i < t.getMida(); i++) {
+            for (int j = 0; j < t.getMida(); j++) {
+                System.out.print(taulaHeurisitca[i][j] + " ");
+            }
+            System.out.println("");
+        }
+
     }
         
 }
