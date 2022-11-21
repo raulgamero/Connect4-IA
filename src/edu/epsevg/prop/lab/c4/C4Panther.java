@@ -127,7 +127,7 @@ public class C4Panther
         return max_value;
     }
     
-    public int heu(Tauler pt, int columna){
+    public int heu(Tauler pt, int columna) {
         cont_jugades = cont_jugades + 1;
 
         int valorHeur = 0;
