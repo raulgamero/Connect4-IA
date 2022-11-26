@@ -77,7 +77,7 @@ public class C4Panther implements Jugador, IAuto
                 // començem el min/max per el min amb profunditat -1 ja que ja hem fet una tirada
                 int valorNou = min(tAux, i, profunditat-1, alpha, beta);
                 // en cas de que la nova heuristica sigui millor que la anterior, actualitzarem la millor heuristica i la columna del millor moviment
-                if(valorNou > millorHeuristica){
+                if(valorNou > millorHeuristica || millorMov == -1){
                     millorHeuristica = valorNou;
                     millorMov = i;
                 }
